@@ -1,0 +1,19 @@
+<h1>Login</h1>
+
+<% if flash[:errors] %>
+  <% flash[:errors].each do |e| %>
+    <p style="color: red;"><%= e %></p>
+  <% end %>
+<% end %>
+
+<%= form_tag sessions_path do %>
+  <%= label_tag :username %>
+  <%= text_field_tag :username %>
+  <%= label_tag :password %>
+  <%= password_field_tag :password %>
+  <%= submit_tag "Log In" %>
+<% end %>
+
+<br><br>
+
+New to Healthbox? <%= link_to "Register a new account", new_user_path, class: 'button' %>

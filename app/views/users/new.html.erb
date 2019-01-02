@@ -1,0 +1,26 @@
+<h1>Create a new account</h1>
+
+  <%= form_for :user, url: '/users' do |f| %>
+    Gender: <%= f.select :gender, User::GENDER_TYPES %><br><br>
+    First name: <%= f.text_field :first_name %><br><br>
+    Last name: <%= f.text_field :last_name %><br><br>
+    Phone Number: <%= f.text_field :phone_number %><br><br>
+    Address: <%= f.text_field :address %><br><br>
+    Username: <%= f.text_field :username %><br><br>
+    Password: <%= f.password_field :password %><br><br>
+    Password Confirmation: <%= f.password_field :password_confirmation %><br><br>
+    <%= f.submit "Submit" %>
+    <% end %>
+
+
+  <% if @user.errors.any? %>
+  <div id="error_explanation" style="color:red;" >
+    <h3>The account must meet the following criteria:</h3>
+    <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+</div>
