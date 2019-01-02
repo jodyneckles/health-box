@@ -1,11 +1,5 @@
 <h1>Login</h1>
 
-<% if flash[:errors] %>
-  <% flash[:errors].each do |e| %>
-    <p style="color: red;"><%= e %></p>
-  <% end %>
-<% end %>
-
 <%= form_tag sessions_path do %>
   <%= label_tag :username %>
   <%= text_field_tag :username %>
@@ -17,3 +11,7 @@
 <br><br>
 
 New to Healthbox? <%= link_to "Register a new account", new_user_path, class: 'button' %>
+
+<br><br>
+
+<%= render "errors/error_list" %>
