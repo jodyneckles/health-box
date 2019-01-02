@@ -1,2 +1,24 @@
-# health-box
-Flatiron Module 2 Rails project. Website that allows users to create an account, order a preselected box of ingredients for a salad / meal, or create a custom box which is saved to their account for easy reordering. Preselected boxes ship with cooking/preparation instructions
+# README
+
+This README would normally document whatever steps are necessary to get the
+application up and running.
+
+Things you may want to cover:
+
+* Ruby version
+
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
