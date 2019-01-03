@@ -2,6 +2,18 @@
 
   <h1>Create a new account</h1>
 
+  <% if @user.errors.any? %>
+  <div id="error_explanation" style="color:red;" >
+    <h3>The account must meet the following criteria:</h3>
+    <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+</div>
+
   <br>
     <p style="color: red;">* required field</p><br>
 
@@ -24,15 +36,3 @@
     <%= f.password_field :password_confirmation %><br><br>
     <%= f.submit "Submit" %>
     <% end %>
-
-  <% if @user.errors.any? %>
-  <div id="error_explanation" style="color:red;" >
-    <h3>The account must meet the following criteria:</h3>
-    <ul>
-      <% @user.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-      <% end %>
-    </ul>
-  </div>
-  <% end %>
-</div>
