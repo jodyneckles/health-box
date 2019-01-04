@@ -6,6 +6,12 @@ class UsersController < ApplicationController
 
   def show
    @user = User.find(params[:id])
+   orders = Order.find_by(user_id: @user.id)
+   if orders.class == Array
+     @orders = orders.reverse.take(5)
+   else
+     @orders = orders
+   end 
   end
 
    def new
