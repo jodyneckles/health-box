@@ -1,0 +1,17 @@
+<h2> <%= @recipe.name %> </h2>
+<img src=<%= @recipe.image %> height="300" width="300" >
+<br><br>
+<label><%= "Category: " + @recipe.category %></label>
+<br><br>
+<label> Ingredients List: <label><br>
+<ul>
+<% @ingredients.each do |ingredient| %>
+  <li><%= ingredient.name %></li>
+<% end %>
+</ul>
+<label> Cooking Instructions: </label><br><br>
+<%= @recipe.instructions %><br><br>
+<label> Video: </label><br><br>
+<iframe width="430" height="300"
+src="https://www.youtube.com/embed/<%= @recipe.video[32..42] %>" >
+</iframe>

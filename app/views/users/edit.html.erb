@@ -1,0 +1,47 @@
+<h1>Edit account settings</h1>
+
+<br>
+  <p style="color: red;">* required field</p><br>
+
+<%= form_for @user do |f| %>
+  * Gender <br>
+  <%= f.select :gender, User::GENDER_TYPES %><br><br>
+  * First name <br>
+  <%= f.text_field :first_name %><br><br>
+  * Last name <br>
+  <%= f.text_field :last_name %><br><br>
+  * Phone Number <br>
+  <%= f.text_field :phone_number %><br><br>
+  * Address <br>
+  <%= f.text_field :address %><br><br>
+  * Username <br>
+  <%= f.text_field :username %><br><br>
+  * Password <br>
+  <%= f.password_field :password %><br><br>
+  * Password Confirmation <br>
+  <%= f.password_field :password_confirmation %><br><br>
+  <%= f.submit "Submit" %>
+<% end %><br><br>
+
+
+<h1>Terminate Account</h1>
+<br>
+<div class="btn btn-primary">
+  <%= link_to 'Delete', @user, :method => :delete, :confirm => "You sure?",
+                                  :title => "Delete #{@user.username}", :class => "btn" %>
+</div>
+
+<br>
+
+
+
+<% if @user.errors.any? %>
+<div id="error_explanation" style="color:red;" >
+  <h3>The account must meet the following criteria:</h3>
+  <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>

@@ -1,0 +1,14 @@
+<h2> All Recipes </h2>
+
+<%= form_tag("/search", method: "get") do %>
+  <%= label_tag(:category, "Search by category:") %>
+  <%= collection_select :recipe, :category, @categories , :itself, :itself, {:include_blank => 'All'}%>
+  <%= submit_tag("Search") %>
+<% end %>
+
+<!-- select("model_name", "model_id", Model.all.collect {|mt| [ mt.name, mt.id ] }, {:include_blank => 'Select'}) -->
+
+
+<% @recipes.each do |recipe| %>
+<%= link_to recipe.name, recipe %><br>
+<% end %>
