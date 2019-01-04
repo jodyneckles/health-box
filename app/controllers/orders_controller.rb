@@ -1,10 +1,11 @@
 class OrdersController < ApplicationController
 
   def create
-    @order= Order.create(order_params)
+    # byebug
+    @order = Order.create(order_params)
     @user = @order.user
-    @orders = Order.where(user_id: params[:order][:user_id]).reverse.take(5) 
-    render 'users/show'
+    @orders = Order.where(user_id: params[:order][:user_id]).reverse.take(5)
+    render '/users/show'
   end
 
   private

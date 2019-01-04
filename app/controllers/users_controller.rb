@@ -5,18 +5,14 @@ class UsersController < ApplicationController
   end
 
   def show
-<<<<<<< HEAD
     authorized_for(params[:id])
-    @user = User.find(params[:id])
-=======
    @user = User.find(params[:id])
    orders = Order.find_by(user_id: @user.id)
    if orders.class == Array
      @orders = orders.reverse.take(5)
    else
      @orders = orders
-   end 
->>>>>>> b4dca75c1027bc9089a03f8d119510119e773676
+   end
   end
 
    def new

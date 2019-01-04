@@ -1,22 +1,4 @@
 <h2> <%= @recipe.name %> </h2>
-<<<<<<< HEAD
-<img src=<%= @recipe.image %> height="300" width="300" >
-<br><br>
-<label><%= "Category: " + @recipe.category %></label>
-<br><br>
-<label> Ingredients List: <label><br>
-<ul>
-<% @ingredients.each do |ingredient| %>
-  <li><%= ingredient.name %></li>
-<% end %>
-</ul>
-<label> Cooking Instructions: </label><br><br>
-<%= @recipe.instructions %><br><br>
-<label> Video: </label><br><br>
-<iframe width="430" height="300"
-src="https://www.youtube.com/embed/<%= @recipe.video[32..42] %>" >
-</iframe>
-=======
 <% if @recipe.image != nil %>
 <img src=<%= @recipe.image %> height="300" width="300" >
 <% end %>
@@ -46,4 +28,3 @@ src="https://www.youtube.com/embed/<%= @recipe.video[32..42] %>" >
 <br><br>
 <%= link_to "All Recipes", recipes_path %>
 <br><br>
->>>>>>> b4dca75c1027bc9089a03f8d119510119e773676
