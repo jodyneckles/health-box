@@ -1,0 +1,18 @@
+<h2> Create a Custom Box </h2><br>
+<%= form_for @recipe, url: recipes_path, method: :post do |f| %>
+  <%= f.label :name %><br>
+  <%= f.text_field :name %><br><br>
+  <%= f.label :category %><br>
+  <%= f.collection_select(:category, @categories, :to_s, :to_s)%><br><br>
+  <%= f.label :instructions %><br>
+  <%= f.text_area :instructions %><br><br>
+  <%= f.label "Select Ingredients" %>
+  <div class="boxes">
+    <%= f.collection_check_boxes(:ids, @recipe.ingredients, :id, :name) do |b| %><br>
+      <%= b.label(class: "check-box") { b.check_box(checked: true, class: "add_margin") + b.text}%>
+    <% end %>
+  </div>
+  <br>
+<%= f.submit "Create Custom Box" %>
+<% end %>
+<br><br>
