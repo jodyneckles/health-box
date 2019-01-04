@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_02_171255) do
+ActiveRecord::Schema.define(version: 2019_01_03_234847) do
 
   create_table "ingredients", force: :cascade do |t|
     t.string "name"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 2019_01_02_171255) do
     t.string "phone_number"
     t.string "last_name"
     t.string "address"
+    t.boolean "admin", default: false
   end
 
 end

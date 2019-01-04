@@ -1,12 +1,18 @@
-<h1><%= @user.username %></h1>
+<h2> Hi <%= @user.username %> </h2>
+
+<%= link_to "Log out", logout_path %><br><br>
+
+<%= link_to "Edit account details", edit_user_path(@user) %><br><br>
+
+
 <br>
 <h4> Most Recent Orders: </h4>
 <% if @orders.is_a?(Array) %>
-<% @orders.each do |order| %><br>
-<%= order.recipe.name %>
-<% end %>
-<% else %>
-<%= @orders.recipe.name %>
+  <% @orders.each do |order| %><br>
+  <%= order.recipe.name %>
+  <% end %>
+<% elsif @orders != nil %>
+  <%= @orders.recipe.name %>
 <% end %>
 <br><br>
 <%= link_to "See all recipes", recipes_path %>

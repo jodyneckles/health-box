@@ -5,35 +5,51 @@ class UsersController < ApplicationController
   end
 
   def show
+    authorized_for(params[:id])
    @user = User.find(params[:id])
    orders = Order.find_by(user_id: @user.id)
    if orders.class == Array
      @orders = orders.reverse.take(5)
    else
      @orders = orders
-   end 
+   end
   end
 
    def new
      @user = User.new
    end
 
-  # def create
-  #   @user = User.create!(user_params)
-  #   if @user.valid?
-  #     session[:user_id] = @user.id
-  #     redirect_to @user
-  #   end
-  # end
 
   def create
     @user = User.new(user_params)
-
-    if @user.save
-      redirect_to login_path(@user)
+    if @user.valid?
+      @user.save
+      session[:user_id] = @user.id
+      redirect_to user_path(@user.id), :notice => "Your logged in as #{@user.username}"
     else
       render :new
     end
+  end
+
+  def edit
+    authorized_for(params[:id])
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+
+    if @user.update_attributes(user_params)
+      redirect_to @user, :notice => "Your Account was updated successfully"
+    else
+      render "edit"
+    end
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    redirect_to login_path, :notice => "Your user has been deleted"
   end
 
   private
