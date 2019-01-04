@@ -12,8 +12,15 @@
 /db/*.sqlite3-journal
 
 # Ignore all logfiles and tempfiles.
+<<<<<<< HEAD
 /log/*.log
 /tmp/
+=======
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+>>>>>>> b4dca75c1027bc9089a03f8d119510119e773676
 
 # Ignore Byebug command history file.
 .byebug_history

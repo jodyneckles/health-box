@@ -1,10 +1,15 @@
 <h2> All Recipes </h2>
+<<<<<<< HEAD
 
+=======
+<br>
+>>>>>>> b4dca75c1027bc9089a03f8d119510119e773676
 <%= form_tag("/search", method: "get") do %>
   <%= label_tag(:category, "Search by category:") %>
   <%= collection_select :recipe, :category, @categories , :itself, :itself, {:include_blank => 'All'}%>
   <%= submit_tag("Search") %>
 <% end %>
+<<<<<<< HEAD
 
 <!-- select("model_name", "model_id", Model.all.collect {|mt| [ mt.name, mt.id ] }, {:include_blank => 'Select'}) -->
 
@@ -12,3 +17,10 @@
 <% @recipes.each do |recipe| %>
 <%= link_to recipe.name, recipe %><br>
 <% end %>
+=======
+<br>
+<% @recipes.each do |recipe| %>
+<%= link_to recipe.name, recipe %><br>
+<% end %>
+<br><br>
+>>>>>>> b4dca75c1027bc9089a03f8d119510119e773676

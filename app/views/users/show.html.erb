@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <h2> Hi <%= @user.username %> </h2>
 
 <%= link_to "Log out", logout_path %><br><br>
@@ -5,4 +6,17 @@
 <%= link_to "Edit account details", edit_user_path(@user) %><br><br>
 
 
+=======
+<h1><%= @user.username %></h1>
+<br>
+<h4> Most Recent Orders: </h4>
+<% if @orders.is_a?(Array) %>
+<% @orders.each do |order| %><br>
+<%= order.recipe.name %>
+<% end %>
+<% else %>
+<%= @orders.recipe.name %>
+<% end %>
+<br><br>
+>>>>>>> b4dca75c1027bc9089a03f8d119510119e773676
 <%= link_to "See all recipes", recipes_path %>

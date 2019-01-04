@@ -1,4 +1,5 @@
 <h2> <%= @recipe.name %> </h2>
+<<<<<<< HEAD
 <img src=<%= @recipe.image %> height="300" width="300" >
 <br><br>
 <label><%= "Category: " + @recipe.category %></label>
@@ -15,3 +16,34 @@
 <iframe width="430" height="300"
 src="https://www.youtube.com/embed/<%= @recipe.video[32..42] %>" >
 </iframe>
+=======
+<% if @recipe.image != nil %>
+<img src=<%= @recipe.image %> height="300" width="300" >
+<% end %>
+<br><br>
+<%= form_for @order do |f| %>
+<%= f.hidden_field :recipe_id, value: @recipe.id %>
+<%= f.hidden_field :user_id, value: session[:user_id] %>
+<%= f.submit "Order This Recipe Box!" %>
+<% end %>
+<br>
+<%= link_to "Create a custom box from this recipe:", edit_recipe_path %>
+<br><br>
+<h4><%= "Category: " + @recipe.category %></h4>
+<br><br>
+<h4> Ingredients List: </h4><br>
+<% @ingredients.each do |ingredient| %>
+  <p><%= ingredient.name %></p>
+<% end %><br>
+<h4> Cooking Instructions: </h4><br>
+<%= @recipe.instructions %><br><br>
+<% if @recipe.video != nil %>
+<h4> Video: </h4><br>
+<iframe width="430" height="300"
+src="https://www.youtube.com/embed/<%= @recipe.video[32..42] %>" >
+</iframe>
+<% end %>
+<br><br>
+<%= link_to "All Recipes", recipes_path %>
+<br><br>
+>>>>>>> b4dca75c1027bc9089a03f8d119510119e773676
