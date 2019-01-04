@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
   def authorized?
     if !logged_in?
       flash[:authorized] = "You aren't logged in!"
-      redirect_to login_path
+      redirect_to login_path and return
       false
     else
       true
@@ -25,8 +25,8 @@ class ApplicationController < ActionController::Base
   end
 
   def authorized_for(user_id)
-    if authorized? && current_user.id != user_id.to_i
-      flash[:authorized] = "You can't see that u thief!"
+    if current_user.id != user_id.to_i && current_user.admin != true
+      flash[:authorized] = "Access Denied!"
       redirect_to current_user
     end
   end

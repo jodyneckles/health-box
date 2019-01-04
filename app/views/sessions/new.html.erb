@@ -1,3 +1,7 @@
+<% if flash[:notice] %>
+    <div class="notice", style="color: green;"><%= flash[:notice] %></div>
+  <% end %>
+
 <h1>Login</h1>
 
 <%= form_tag sessions_path do %>
@@ -10,8 +14,12 @@
 
 <br><br>
 
-New to Healthbox? <%= link_to "Register a new account", new_user_path, class: 'button' %>
+New to Healthbox? <%= link_to "Register a new account", signup_path, class: 'button' %>
 
 <br><br>
 
 <%= render "errors/error_list" %>
+
+<% if flash[:notice] %>
+    <div class="notice", style="color: green;"><%= flash[:notice] %></div>
+  <% end %>
